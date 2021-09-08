@@ -38,8 +38,6 @@
             </goals>
             <configuration>
               <args>
-                <arg>-dependencyfile</arg>
-                <arg>${project.build.directory}/.scala_dependencies</arg>
                 <arg>-P:fortify:build=${project.build.finalName}</arg>
               </args>
               <compilerPlugins>
