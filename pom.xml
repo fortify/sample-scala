@@ -11,7 +11,6 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <encoding>UTF-8</encoding>
     <scala.version>2.13.6</scala.version>
-    <scala.compat.version>2.13</scala.compat.version>
     <scala.maven.version>4.3.0</scala.maven.version>
     <scala.fortify.version>1.0.21</scala.fortify.version>
   </properties>
