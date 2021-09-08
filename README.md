@@ -44,3 +44,30 @@ App.scala(9) :  ->Predef.println(0)
     App.scala(5)
 Analysis completed in 00:06
 ```
+### Adding non-Scala code
+
+The project contains a small vulnerable Express.js app to demonstrate how non-Scala code can be added
+to this process. 
+
+```
+$ sourceanalyzer -b maven-scala-sample-1.0 src/main/javascript/
+$ sourceanalyzer -b maven-scala-sample-1.0 -scan
+                                                     ]    
+[/home/fransvb/Projects/public/maven-scala-sample/src/main]
+
+[14B23E4EB904ABD720F3B2ACCCAD4257 : critical : Cross-Site Scripting : Reflected : dataflow ]
+javascript/index.js(8) :  ->~JS_Generic.send(0)
+    javascript/index.js(5) :  ->lambda(0.query)
+
+[75113D74D4FD9A5AD5F77D94B4E63B0E : critical : Privacy Violation : dataflow ]
+scala/com/example/App.scala(9) :  ->Predef.println(0)
+    scala/com/example/App.scala(8) : <=> (b)
+        scala/com/example/App.scala(7) : return
+    scala/com/example/App.scala(8) : <->com.example.App$$anonfun$main$1.apply(0->return)
+    scala/com/example/App.scala(6) : <=> (a)
+    scala/com/example/App.scala(6) : <- Console.readPassword(return)
+
+[DE9585CE5B2B7B7937D4C4C1B2BFE28E : low : J2EE Bad Practices : Leftover Debug Code : structural ]
+    scala/com/example/App.scala(5)
+
+```
