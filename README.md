@@ -2,7 +2,7 @@
 This repositories contains two examples of Scala scanning with 
 [Fortify SCA](https://www.microfocus.com/en-us/cyberres/application-security/static-code-analyzer).
 
-- Folder "scala-maven" contains an example of Scala scanning on a Scala project built with Maven.
+- Folder "scala-maven" contains an example of Scala scanning on a Scala project built with Maven (using the "scala-maven-plugin" from https://github.com/davidB/).
 - Folder "scala-gradle" contains an example of Scala scanning on a Scala project built with Gradle.
 
 Each folder has its own README.md with detailed explanation.
