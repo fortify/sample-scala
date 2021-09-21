@@ -1,0 +1,36 @@
+plugins {
+    id 'scala'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+ext {
+    scalaBinaryVersion = '2.13'
+    scalaVersion = '2.13.6'
+    fortifyPluginVersion = '1.0.21'
+}
+
+configurations {
+    lightbendFortifyPlugin
+}
+
+dependencies {
+    compile("org.scala-lang:scala-library:$scalaVersion")
+    lightbendFortifyPlugin group: 'com.lightbend', name: "scala-fortify_$scalaVersion", version: fortifyPluginVersion
+}
+
+application {
+    mainClass = 'com.example.App'
+}
+
+tasks.withType(ScalaCompile) {
+    scalaCompileOptions.additionalParameters = [
+            "-Xplugin:" + configurations.lightbendFortifyPlugin.asPath,
+            "-Xplugin-require:fortify",
+            "-P:fortify:build=scala-gradle"
+    ]
+}
