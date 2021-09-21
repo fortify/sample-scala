@@ -15,9 +15,8 @@ the code. This will download Gradle 6.9 on the fly. We tested this on OpenJDK 11
 
 `./gradlew clean build` (remove `./` for Windows) will perform a compilation of the sources. During the compilation, Lightbend's
 [scala-fortify plugin](https://developer.lightbend.com/docs/fortify/current/) will be active in the
-Scala compiler. As a result, translation of the Scala code to Fortify NST will take place. With the
-current settings, the NSTs will be stored under a build id specific in `app/build.gradle`, in this case
-`scala-gradle`.
+Scala compiler. As a result, translation of the Scala code to Fortify NST will take place. NSTs will be stored under a build id
+specified in `app/build.gradle`, in this case `scala-gradle`.
 
 After translation, regular `sourceanalyzer` commands can be used to perform the scan phase, e.g.
 
